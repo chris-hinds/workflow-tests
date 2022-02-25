@@ -22,7 +22,7 @@ jobs:
       - name: Set workflow variables based on env
         id: vars
         run: |
-          case ${{ github.event.inputs.environment }} in
+          case "${{ github.event.inputs.environment }}" in
           ("local") echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local ;;
           ("dev") echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev ;;
           ("staging") echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging ;;
