@@ -23,13 +23,27 @@ jobs:
         id: vars
         run: |
           case 1.1 in
-          1.1) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local ;;
-          1.2) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev ;;
-          staging) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging ;;
-          qa) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-qa ;;
-          next) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-next ;;
-          live) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference ;;
-          *) echo "Invalid environment" && exit 1 ;;
+          1.1)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local"
+            ;;
+          1.2)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev"
+            ;;
+          staging)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging"
+            ;;
+          qa)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-qa"
+            ;;
+          next)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-next"
+            ;;
+          live)
+            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference"
+            ;;
+          *)
+            echo "Invalid environment" && exit 1 
+            ;;
           esac
 
           ENVIRONMENT=$(echo ${{ github.event.inputs.environment }} | tr '[:lower:]' '[:upper:]')
