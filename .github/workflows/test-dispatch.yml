@@ -22,9 +22,9 @@ jobs:
       - name: Set workflow variables based on env
         id: vars
         run: |
-          case dev in
-          local) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local ;;
-          dev) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev ;;
+          case 1.1 in
+          1.1) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local ;;
+          1.2) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev ;;
           staging) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging ;;
           qa) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-qa ;;
           next) echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-next ;;
