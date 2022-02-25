@@ -23,25 +23,25 @@ jobs:
         id: vars
         run: |
           case 1.1 in
-          1.1)
-            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-local"
+          (1.1)
+            echo ::set-output name=DEPLOYMENT_PROJECT:: "remo-local"
             ;;
-          1.2)
-            echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-dev"
+          (1.2)
+            echo ::set-output name=DEPLOYMENT_PROJECT:: "remo-conference-dev"
             ;;
-          staging)
+          (1.3)
             echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging"
             ;;
-          qa)
+          (qa)
             echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-qa"
             ;;
-          next)
+          (next)
             echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-next"
             ;;
-          live)
+          (live)
             echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference"
             ;;
-          *)
+          (*)
             echo "Invalid environment" && exit 1 
             ;;
           esac
