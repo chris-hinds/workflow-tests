@@ -6,8 +6,8 @@ on:
       environment:
         type: choice
         options:
-          - dev
           - local
+          - dev
           - staging
           - qa
           - next
@@ -22,14 +22,14 @@ jobs:
       - name: Set workflow variables based on env
         id: vars
         run: |
-          case 1.1 in
-          (1.1)
+          case dev in
+          (local)
             echo ::set-output name=DEPLOYMENT_PROJECT:: "remo-local"
             ;;
-          (1.2)
+          (dev)
             echo ::set-output name=DEPLOYMENT_PROJECT:: "remo-conference-dev"
             ;;
-          (1.3)
+          (staging)
             echo "##[set-output name=DEPLOYMENT_PROJECT;]remo-conference-staging"
             ;;
           (qa)
